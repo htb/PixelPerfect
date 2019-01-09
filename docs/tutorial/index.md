@@ -65,6 +65,7 @@ Now let’s say this is an image that we need to stretch out a bit to fill a wid
 <img src="img03.png"/><em>Zoomed in on iPhone 8.</em>
 <img src="img04.png"/><em>Zoomed in on iPhone X.</em>
 </div>
+<br/>
 
 They zoomed in images on the iPhone 8 and iPhone 10 look different. So what is going on here? Why do they look different? We used 12 points width on both devices.
 
@@ -415,6 +416,7 @@ There should now be a white rectangle at the top with a black line across it. Pl
 <img src="img11.png"/><em>Aliased.</em>
 <img src="img12.png"/><em>Antialiased.</em>
 </div>
+<br/>
 
 Now try with make this change to the DrawLine code:
 
@@ -429,6 +431,7 @@ You will see that when you use -10.5 on the iPhone 8 simulator (or phone), you w
 <img src="img13.png"/><em>Aliased at one point thick at -10.0.</em>
 <img src="img14.png"/><em>Antialiased at one point thick at -10.</em>
 </div>
+<br/>
 
 
 ## Capture the draw view
@@ -484,6 +487,7 @@ Now run the app and zoom at 1x, first the image and then the view:
 <img src="img15.png"/><em>Zoomed image on iPhone X.</em>
 <img src="img16.png"/><em>Zoomed view in iPhone X.</em>
 </div>
+<br/>
 
 We drew into an image of scale 1.0. But when we drew that image into the view at the view’s point size, the image was scaled up to fit the view. On iPhone X this becomes even more evident, with a content scale factor of 3. The “viewshot” image on the right has created an image from the view with `contentScaleFactor` of 3, making an image of scale 3. Now let’s have a closer look at the upscaled image that is displayed in the draw view:
 
@@ -491,6 +495,7 @@ We drew into an image of scale 1.0. But when we drew that image into the view at
 <img src="img17.png"/><em>interpolationQuality = .default</em>
 <img src="img18.png"/><em>interpolationQuality = .default, antialiased</em>
 </div>
+<br/>
 
 Even with antialiasing turned off it looks antialiased. This is not what we wanted. The cause of this is the use of interpolation when upscaling the image. The purpose is the same as for antialiasing; we rather want images to appear slightly fuzzier when we upscale them than to look jagged and pixelated. But in the case where we do not want antialiasing, we most often don’t want this interpolation either. When we zoomed in we wanted to display the exact same pixels, only enlarged. So we turned interpolation off. Now let’s do the same when we draw to the view. Add these lines above the image drawing in LineView so it reads:
 
