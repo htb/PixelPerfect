@@ -27,15 +27,15 @@ img + em {
 
 [Using iPhone and Swift]
 
-[Back to the Xcode project.](https://github.com/htb/PixelPerfect)
+[Go to the Xcode project.](https://github.com/htb/PixelPerfect)
 
 Once upon a time we used to care about pixels -- the picture element. The more pixels, the higher resolutions, better looking text and images. After a while more pixels meant crisper screens and images. Nobody ever said 8 pixels any more (unless they meant “8 points”). The base unit for pixels had become megapixels.
 
 As app developers we have now become accustomed to points. With points we draw the same relative distance on devices with different screen sizes and resolutions. They just look longer on bigger devices, and crisper on higher resolutions.
 
-Some devices also has different dimensions measured in points, and then you get into the dilemma of whether to display more information, more spaced out, or to scale up images and text to the same relative sizes. And then you have different aspect ratios, and maybe the screen layouts better be totally different. The following ignores all of this.
+Some devices also have different dimensions measured in points, and then you get into the dilemma of whether to display more information, more spaced out, or to scale up images and text to the same relative sizes. And then you have different aspect ratios, and maybe the screen layouts better be totally different. The following ignores all of this.
 
-But event then, some times different resolutions and automatic smoothing to accomodate the same image and drawing resolution on different physical media can make quite a mess. Let’s explore.
+But even then, some times different resolutions and automatic smoothing to accomodate the same image and drawing resolution on different physical media can make quite a mess. Let’s explore!
 
 The following first explains the concepts of aliasing, antialiasing and upscale interpolation, and then moves on to play with this in code. And then finally we draw barcodes.
 
