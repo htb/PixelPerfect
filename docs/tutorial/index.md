@@ -1,4 +1,4 @@
-# Pixel Perfect
+# Pixel Perfect -- Tutorial
 
 <style type='text/css'>
 p {
@@ -25,7 +25,7 @@ img + em {
 }
 </style>
 
-[Using iPhone and Swift]
+Using iOS and Swift
 
 [Go to the Xcode project.](https://github.com/htb/PixelPerfect)
 
