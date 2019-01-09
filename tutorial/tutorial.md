@@ -130,6 +130,17 @@ For the buttons, set the tag property to 1, 5, 10, 20 and 100. We will pick the 
 The purple zoom view is just a UIView with autolayout anchored at the bottom left, with not width or height constraint set.
 
 
+## Image `scale` and view `contentScaleFactor`
+
+These concepts require a bit of explanation before we move on with drawing. It is about pixel resolution and conversion from *pixel* to *point* coordinates.
+
+The `contentScaleFactor` (say 3, as for iPhone X) for the view is simply a coordinate mapping from one point in the view to the pixel (3) on what it renders to; the physical screen. So at factor 3, 100 points will render to 300 pixels. For those views that have their own backing stores (typically *not* UIImageView), the resolution of the graphics is at the scale factor. I.e. 300 pixels for a view of 100 points in this case. (UIImageView renders directly from its `image` rather than first copying the image to the view's backing store.) So on a higher resolution device with a higher a higher resolution graphic or image in the view, the rendered graphic will look prettier.
+
+Similarly, an image of `scale` (say 3) has an actual pixel representation that factor larger than its point size. So an image 100 points wide with a scale of 3 contains 100 pixels in width.
+
+See this old but [brilliant article](https://www.objc.io/issues/3-views/moving-pixels-onto-the-screen/) to learn more about how graphics is drawn. Too bad it doesn't cover the scale factors, though.
+
+
 ## ZoomView
 
 Now create a new class called ZoomView. Here’s the full code:
@@ -341,15 +352,6 @@ But the view is not yet part of our page. Let’s just add it from the view cont
 
 We can now run the app. It will do absolutely nothing except display a blue rectangle at the top. But we are ready to start drawing!
 
-## Image `scale` and view `contentScaleFactor`
-
-These concepts require a bit of explanation before we move on with drawing. It is about pixel resolution and conversion from *pixel* to *point* coordinates.
-
-The `contentScaleFactor` (say 3) for the view is simply a coordinate mapping from one point in the view to the pixel (3) on what it renders to; the physical screen. So at factor 3, 100 points will render to 300 pixels. For those views that have their own backing stores (typically *not* UIImageView), the resolution of the graphics is at the scale factor. I.e. 300 pixels for a view of 100 points in this case. (UIImageView renders directly from its `image` rather than first copying the image to the view's backing store.) So on a higher resolution device with a higher a higher resolution graphic or image in the view, the rendered graphic will look prettier.
-
-Similarly, an image of `scale` (say 3) has an actual pixel representation that factor larger than its point size. So an image 100 points wide with a scale of 3 contains 100 pixels in width.
-
-See this old but [brilliant article](https://www.objc.io/issues/3-views/moving-pixels-onto-the-screen/) to learn more about how graphics is drawn. Too bad it doesn't cover the scale factors, though.
 
 ## Let's draw a line
 
